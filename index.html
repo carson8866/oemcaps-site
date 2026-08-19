@@ -28,6 +28,7 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css" as="style">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" as="style">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" media="print" onload="this.media='all'">
+  <link rel="preload" href="assets/css/main.css" as="style">
 
   <!-- Vendor CSS Files -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
@@ -36,14 +37,10 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- OEM Caps Custom Styles (内联 main.css 以消除渲染阻塞) -->
+  <!-- OEM Caps Custom Styles -->
   <style>
-  /* ===== 内联 main.css 的全部内容 ===== */
-  /* 这里粘贴你 assets/css/main.css 文件的完整内容 */
-  /* 由于无法直接读取你的文件，保留原 main.css 引用作为后备，但建议你手动替换 */
-  @import url('assets/css/main.css');
-
   /* ---------- OEM Caps brand tone ---------- */
 :root {
   --accent-color: #1a73e8;
@@ -540,9 +537,11 @@
         <div class="contact-form-card">
           <h3 class="contact-form-title">Send Your Inquiry</h3>
           <p class="contact-form-sub">Fields marked with * are required. We usually reply within 12 hours.</p>
-          <form action="https://formspree.io/f/mwleodwv" method="POST" id="inquiry-form">
-            <input type="hidden" name="_next" value="index.html">
-            <input type="hidden" name="_subject" value="New Inquiry from oemcaps.com">
+          <form action="https://api.web3forms.com/submit" method="POST" id="inquiry-form">
+            <input type="hidden" name="access_key" value="497754a9-c6de-45b8-bd77-b2b5c5e4700e">
+            <input type="hidden" name="redirect" value="https://oemcaps.com/#contact">
+            <input type="hidden" name="subject" value="New Inquiry from oemcaps.com">
+            <input type="text" name="_honey" style="display:none">
             <div class="row g-3">
               <div class="col-md-6">
                 <label class="form-label" for="cf-name">Name *</label>
@@ -568,7 +567,7 @@
           <h3 class="contact-info-title"><i class="fa-solid fa-circle-info"></i> Contact Info</h3>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div><div><h4>Address</h4><p>Room 309, Building 8, Future Micro Villa, Lianchi District, Baoding City, Hebei Province, China 071000</p></div></div>
           <div class="contact-info-item"><div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div><div><h4>Phone</h4><p><a href="tel:+8615131222302">+86 151 3122 2302</a></p></div></div>
-          <div class="contact-info-item"><div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div><div><h4>Email</h4><p><a href="mailto:carson@oemcaps.com">carson@oemcaps.com</a></p></div></div>
+          <div class="contact-info-item"><div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div><div><h4>Email</h4><p><a href="mailto:carson@bdbrim.com">carson@bdbrim.com</a></p></div></div>
           <a href="https://wa.me/8615131222302" target="_blank" class="btn btn-wa w-100"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
         </div>
       </div>
@@ -590,11 +589,11 @@
           <p>Room 309, Building 8, Future Micro Villa,<br>Lianchi District, Baoding City,<br>Hebei Province, China, 071000</p>
           <p><strong>Contact:</strong> <span>Carson</span></p>
           <p><strong>Phone:</strong> <span>+86 151 3122 2302</span></p>
-          <p><strong>Email:</strong> <span>carson@oemcaps.com</span></p>
+          <p><strong>Email:</strong> <span>carson@bdbrim.com</span></p>
         </div>
         <div class="social-links d-flex mt-4">
           <a href="https://wa.me/8615131222302" target="_blank"><i class="bi bi-whatsapp"></i></a>
-          <a href="mailto:carson@oemcaps.com"><i class="bi bi-envelope"></i></a>
+          <a href="mailto:carson@bdbrim.com"><i class="bi bi-envelope"></i></a>
           <a href="https://oemcaps.com" target="_blank"><i class="bi bi-globe"></i></a>
           <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
           <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
