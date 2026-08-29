@@ -62,6 +62,47 @@
 
     <!-- OEM Caps Custom Styles（修复透明Header + 按钮清晰度） -->
     <style>
+        /* 强制覆盖 CTA 按钮样式 */
+.call-to-action .cta-btn {
+    display: inline-block !important;
+    padding: 14px 40px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    margin: 6px 8px !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid transparent !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+/* Get A Free Quote - 亮蓝色 */
+.call-to-action .cta-btn:first-child {
+    background: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.6) !important;
+}
+.call-to-action .cta-btn:first-child:hover {
+    background: #4a8af5 !important;
+    border-color: #ffffff !important;
+}
+
+/* WhatsApp Us - 亮绿色 */
+.call-to-action .cta-btn:last-child {
+    background: #2fda6e !important;
+    border-color: #2fda6e !important;
+    box-shadow: 0 4px 20px rgba(47, 218, 110, 0.5) !important;
+}
+.call-to-action .cta-btn:last-child:hover {
+    background: #4ae080 !important;
+    border-color: #ffffff !important;
+}
         /* ---------- 重置：移除 Logo 白色背景和阴影，适配透明 PNG/WEBP ---------- */
         .header .logo img {
             max-height: 44px;
