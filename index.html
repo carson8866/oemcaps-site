@@ -60,49 +60,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
 
-    <!-- OEM Caps Custom Styles（修复透明Header + 按钮清晰度） -->
+    <!-- OEM Caps Custom Styles（修复透明Header + CTA按钮清晰） -->
     <style>
-        /* 强制覆盖 CTA 按钮样式 */
-.call-to-action .cta-btn {
-    display: inline-block !important;
-    padding: 14px 40px !important;
-    border-radius: 50px !important;
-    font-weight: 700 !important;
-    font-size: 16px !important;
-    text-decoration: none !important;
-    margin: 6px 8px !important;
-    transition: all 0.3s ease !important;
-    border: 2px solid transparent !important;
-    color: #ffffff !important;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    z-index: 10 !important;
-    position: relative !important;
-}
-
-/* Get A Free Quote - 亮蓝色 */
-.call-to-action .cta-btn:first-child {
-    background: #3b82f6 !important;
-    border-color: #3b82f6 !important;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.6) !important;
-}
-.call-to-action .cta-btn:first-child:hover {
-    background: #4a8af5 !important;
-    border-color: #ffffff !important;
-}
-
-/* WhatsApp Us - 亮绿色 */
-.call-to-action .cta-btn:last-child {
-    background: #2fda6e !important;
-    border-color: #2fda6e !important;
-    box-shadow: 0 4px 20px rgba(47, 218, 110, 0.5) !important;
-}
-.call-to-action .cta-btn:last-child:hover {
-    background: #4ae080 !important;
-    border-color: #ffffff !important;
-}
         /* ---------- 重置：移除 Logo 白色背景和阴影，适配透明 PNG/WEBP ---------- */
         .header .logo img {
             max-height: 44px;
@@ -774,7 +733,7 @@
             min-height: 70px;
             background: transparent !important;
             box-shadow: none !important;
-            /* 已移除 border-bottom 白色透明线 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: fixed;
             top: 0;
             left: 0;
@@ -879,7 +838,7 @@
             }
         }
 
-        /* ---------- Call to action ---------- */
+        /* ---------- Call to action 按钮重写（清晰、高亮） ---------- */
         .call-to-action {
             position: relative;
             padding: 80px 0;
@@ -914,230 +873,40 @@
             display: inline-block;
             padding: 14px 40px;
             border-radius: 50px;
-            background: var(--accent-color);
-            color: #fff;
+            background: #1a73e8;
+            color: #fff !important;
             font-weight: 600;
             font-size: 15px;
             text-decoration: none;
             margin: 6px 8px;
-            transition: .3s;
-            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            border: 2px solid #1a73e8;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+            cursor: pointer;
+            z-index: 10;
+            position: relative;
         }
         .call-to-action .cta-btn:hover {
             background: transparent;
+            color: #fff !important;
             border-color: #fff;
-            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(26, 115, 232, 0.4);
         }
+        /* 第二个按钮：WhatsApp 绿色，清晰 */
         .call-to-action .cta-btn:last-child {
             background: #25d366;
+            border-color: #25d366;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
         }
         .call-to-action .cta-btn:last-child:hover {
             background: transparent;
             border-color: #25d366;
-            color: #25d366;
+            color: #25d366 !important;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
         }
 
-        /* ---------- 新增：CTA按钮高亮（仅针对此区域） ---------- */
-        .call-to-action .cta-btn:first-child {
-            background: #2a7de1; /* 更亮蓝色 */
-            box-shadow: 0 4px 20px rgba(26, 115, 232, 0.6);
-            border-color: #2a7de1;
-        }
-        .call-to-action .cta-btn:first-child:hover {
-            background: #3b8af0;
-            border-color: #fff;
-            box-shadow: 0 6px 28px rgba(26, 115, 232, 0.7);
-        }
-        .call-to-action .cta-btn:last-child {
-            background: #25d366;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-            border-color: #25d366;
-        }
-        .call-to-action .cta-btn:last-child:hover {
-            background: #30e07a;
-            border-color: #fff;
-            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
-        }
-
-        /* ---------- Footer ---------- */
-        .footer {
-            background: #0a1628;
-            color: rgba(255, 255, 255, .7);
-            padding: 60px 0 30px;
-        }
-        .footer .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #fff;
-        }
-        .footer .logo .sitename {
-            font-size: 22px;
-            font-weight: 700;
-            color: #fff;
-        }
-        .footer .footer-about p {
-            margin: 6px 0;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-        .footer .footer-about strong {
-            color: #fff;
-        }
-        .footer .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .08);
-            color: #fff;
-            margin-right: 8px;
-            transition: .3s;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .footer .social-links a:hover {
-            background: var(--accent-color);
-            color: #fff;
-        }
-        .footer .footer-links h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 16px;
-        }
-        .footer .footer-links ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .footer .footer-links ul li {
-            margin-bottom: 10px;
-        }
-        .footer .footer-links ul li a {
-            color: rgba(255, 255, 255, .6);
-            text-decoration: none;
-            font-size: 14px;
-            transition: .2s;
-        }
-        .footer .footer-links ul li a:hover {
-            color: #fff;
-        }
-        .footer .footer-newsletter h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 12px;
-        }
-        .footer .footer-newsletter p {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        .footer .newsletter-form {
-            display: flex;
-            gap: 8px;
-            max-width: 400px;
-        }
-        .footer .newsletter-form input[type="email"] {
-            flex: 1;
-            padding: 10px 14px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, .15);
-            background: rgba(255, 255, 255, .06);
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-        }
-        .footer .newsletter-form input[type="email"]::placeholder {
-            color: rgba(255, 255, 255, .4);
-        }
-        .footer .newsletter-form input[type="submit"] {
-            padding: 10px 28px;
-            border-radius: 50px;
-            border: 0;
-            background: var(--accent-color);
-            color: #fff;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: .3s;
-        }
-        .footer .newsletter-form input[type="submit"]:hover {
-            background: color-mix(in srgb, var(--accent-color), #000 20%);
-        }
-        .footer .copyright {
-            border-top: 1px solid rgba(255, 255, 255, .06);
-            padding-top: 24px;
-            margin-top: 40px;
-            font-size: 14px;
-            color: rgba(255, 255, 255, .4);
-        }
-        .footer .copyright .sitename {
-            color: #fff;
-            font-weight: 600;
-        }
-        .footer .copyright a {
-            color: rgba(255, 255, 255, .5);
-            text-decoration: none;
-        }
-        .footer .copyright a:hover {
-            color: #fff;
-        }
-
-        /* ---------- Scroll Top ---------- */
-        .scroll-top {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 999;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            text-decoration: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
-        }
-        .scroll-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .scroll-top:hover {
-            background: color-mix(in srgb, var(--accent-color), #000 15%);
-            color: #fff;
-        }
-
-        /* ---------- 其他通用 ---------- */
-        .dark-background {
-            background: #0a1628;
-        }
-        .light-background {
-            background: #f8faff;
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .section-title h2::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 10px auto 0;
-            border-radius: 4px;
-        }
-
-        /* ---------- Hero 按钮重写（清晰、高对比） ---------- */
+        /* ---------- Hero 按钮同样保持清晰 ---------- */
         .btn-get-started {
             display: inline-block;
             padding: 14px 36px;
@@ -1162,7 +931,6 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 24px rgba(26, 115, 232, 0.4);
         }
-        /* 第二个按钮：清晰亮色背景 */
         .btn-get-started:last-child {
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.5);
@@ -1263,19 +1031,18 @@
             margin-top: 2px;
         }
         .about .content .read-more {
-    background: #3b82f6 !important;
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    padding: 10px 28px !important;
-    border-radius: 50px !important;
-    border: 2px solid #3b82f6 !important;
-    text-decoration: none !important;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4) !important;
-}
-.about .content .read-more:hover {
-    background: #4a8af5 !important;
-    border-color: #ffffff !important;
-}
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+        .about .content .read-more:hover {
+            gap: 14px;
+        }
     </style>
 </head>
 
@@ -1289,7 +1056,6 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center" style="gap:6px;text-decoration:none;">
-                <!-- Logo 透明背景，已移除白色底和阴影 -->
                 <img src="assets/img/logo/oem.webp" alt="OEM Caps logo" width="80" height="44" style="max-height:44px;width:auto;height:auto;display:block;background:transparent!important;box-shadow:none!important;border-radius:0!important;padding:0!important;">
                 <h1 class="sitename" style="font-size:24px;font-weight:700;color:#fff;margin:0;line-height:1.2;text-shadow:0 2px 8px rgba(0,0,0,0.3);">OEM Caps</h1>
             </a>
@@ -1420,9 +1186,9 @@
             </div>
         </section>
 
-        <!-- Call To Action Section -->
+        <!-- Call To Action Section（已修复按钮清晰度） -->
         <section id="call-to-action" class="call-to-action section dark-background">
-            <img src="assets/img/factory/5.webp" alt="Factory background" loading="lazy">
+            <img src="assets/img/factory/5.webp" alt="Factory background" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25;z-index:0;">
             <div class="container">
                 <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
                     <div class="col-xl-10">
