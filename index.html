@@ -148,8 +148,14 @@
 
 /* ---------- Mobile fine-tuning ---------- */
 @media (max-width: 575px) {
-  .header .logo img { max-height: 32px; border-radius: 7px; padding: 3px 5px; }
-  .header .logo h1 { font-size: 23px; }
+  ..header .logo img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+.header .logo h1 {
+    font-size: 23px;
+}
   .products .isotope-container .portfolio-item { flex: 0 0 50%; max-width: 50%; }
   .products .product-info { padding: 12px 12px 14px; }
   .products .product-info h4 { font-size: 15px; }
