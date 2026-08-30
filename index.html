@@ -51,13 +51,60 @@
   --nav-hover-color: #1a73e8;
   --nav-dropdown-hover-color: #1a73e8;
 }
+/* 修复导航栏 CLS：固定高度，保持透明背景 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 70px;
+  background: transparent;
+}
 .header .logo img {
-    width: 35px;        /* 改成正方形 */
-    height: 35px;       /* 和 width 相同 */
-    object-fit: cover;  /* 防止拉伸 */
+    width: 100px;
+    height: 52px;
+    object-fit: contain;
 }
 .header .logo h1 {
     font-size: 23px;
+}
+
+/* 修复 WhatsApp 按钮 CLS */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 999;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 6px 18px rgba(37,211,102,.45);
+  transition: .3s;
+  transform: translateZ(0);
+  will-change: transform;
+}
+.wa-float:hover { transform: translateY(-4px); color: #fff; background: #1ebe5b; }
+
+/* 修复工厂统计数字动画导致的 CLS */
+.factory-stats .factory-stat .stat-num {
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--accent-color);
+  font-family: var(--heading-font);
+  line-height: 1;
+  min-width: 100px;
+  display: inline-block;
+}
+.factory-stats .factory-stat .stat-num .suffix { font-size: 28px; }
+.factory-stats .factory-stat .stat-num .counter {
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- Product Cards ---------- */
@@ -89,8 +136,6 @@
 
 /* ---------- Factory stats + gallery ---------- */
 .factory-stats .factory-stat { text-align: center; background: var(--surface-color); border: 1px solid rgba(0,0,0,.06); border-radius: 12px; padding: 34px 20px; box-shadow: 0 6px 18px rgba(0,0,0,.05); height: 100%; }
-.factory-stats .factory-stat .stat-num { font-size: 46px; font-weight: 700; color: var(--accent-color); font-family: var(--heading-font); line-height: 1; }
-.factory-stats .factory-stat .stat-num .suffix { font-size: 28px; }
 .factory-stats .factory-stat p { margin: 10px 0 0; font-family: var(--heading-font); font-weight: 600; font-size: 15px; color: var(--heading-color); }
 .factory-gallery .factory-img { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 8px 22px rgba(0,0,0,.08); }
 .factory-gallery .factory-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
@@ -106,10 +151,6 @@
 .review-card .review-author h4 { font-size: 15px; font-weight: 700; margin: 0 0 2px; color: var(--heading-color); }
 .review-card .review-role { font-size: 12px; color: color-mix(in srgb, var(--default-color), transparent 30%); }
 .reviews .swiper-slide { height: auto; padding: 8px; }
-
-/* ---------- Floating WhatsApp button ---------- */
-.wa-float { position: fixed; bottom: 24px; left: 24px; z-index: 999; width: 54px; height: 54px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 6px 18px rgba(37,211,102,.45); transition: .3s; }
-.wa-float:hover { transform: translateY(-4px); color: #fff; background: #1ebe5b; }
 
 /* ---------- Customization cards ---------- */
 .decor-item { background: var(--surface-color); border: 1px solid rgba(0,0,0,.06); border-radius: 12px; padding: 26px 22px; height: 100%; box-shadow: 0 6px 18px rgba(0,0,0,.05); transition: .3s; }
@@ -154,14 +195,14 @@
 
 /* ---------- Mobile fine-tuning ---------- */
 @media (max-width: 575px) {
-  ..header .logo img {
-    width: 42px;        /* 改成正方形 */
-    height: 42px;       /* 和 width 相同 */
-    object-fit: cover;  /* 防止拉伸 */
-}
-.header .logo h1 {
+  .header .logo img {
+    width: 80px;
+    height: 42px;
+    object-fit: contain;
+  }
+  .header .logo h1 {
     font-size: 23px;
-}
+  }
   .products .isotope-container .portfolio-item { flex: 0 0 50%; max-width: 50%; }
   .products .product-info { padding: 12px 12px 14px; }
   .products .product-info h4 { font-size: 15px; }
@@ -195,8 +236,8 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
     <a href="index.html" class="logo d-flex align-items-center">
-      <!-- 修复：给 Logo 添加固定宽高，消除 CLS -->
-      <img src="assets/img/logo/oem.webp" alt="OEM Caps logo" width="80" height="42">
+      <!-- 修复：调大 Logo 尺寸 -->
+      <img src="assets/img/logo/oem.webp" alt="OEM Caps logo" width="100" height="52">
       <h1 class="sitename">OEM Caps</h1>
     </a>
     <nav id="navmenu" class="navmenu">
@@ -604,7 +645,8 @@
     <div class="row gy-4">
       <div class="col-lg-4 col-md-6 footer-about">
         <a href="index.html" class="logo d-flex align-items-center">
-          <img src="assets/img/logo/oem.webp" alt="OEM Caps logo" width="46" height="46">
+          <!-- 修复：页脚 Logo 改为正方形，防止拉伸 -->
+          <img src="assets/img/logo/oem.webp" alt="OEM Caps logo" width="50" height="50" style="object-fit: contain;">
           <span class="sitename">OEM Caps</span>
         </a>
         <div class="footer-contact pt-3">
@@ -663,7 +705,7 @@
 <!-- Floating WhatsApp -->
 <a href="https://wa.me/8615131222302" target="_blank" class="wa-float" aria-label="Chat with OEM Caps on WhatsApp"><i class="bi bi-whatsapp"></i></a>
 
-<!-- Vendor JS Files (已经全部添加 defer 属性，防止JS报错导致网页白屏打不开) -->
+<!-- Vendor JS Files -->
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/purecounter/1.5.0/purecounter_vanilla.js"></script>
@@ -673,7 +715,7 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 <script defer src="assets/js/main.js"></script>
 
-<!-- 数字滚动动画脚本（已修复可能存在的 JS 报错） -->
+<!-- 数字滚动动画脚本 -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // 获取所有需要滚动的计数器容器
