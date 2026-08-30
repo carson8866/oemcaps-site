@@ -62,8 +62,8 @@
   background: transparent;
 }
 .header .logo img {
-    width: 140px;
-    height: 110px;
+    width: 170px;   /* ⬅️ 改大：从 140px → 170px */
+    height: 130px;  /* ⬅️ 改大：从 110px → 130px */
     object-fit: contain;
 }
 .header .logo h1 {
@@ -645,8 +645,8 @@
     <div class="row gy-4">
       <div class="col-lg-4 col-md-6 footer-about">
         <a href="index.html" class="logo d-flex align-items-center">
-          <!-- 修复：页脚 Logo 改为正方形，防止拉伸 -->
-          <img src="assets/img/logo/oem.webp" alt="OEM Caps logo" width="50" height="50" style="object-fit: contain;">
+          <!-- ⬅️ 改大：页脚 Logo 从 50x50 → 70x70 -->
+          <img src="assets/img/logo/oem.webp" alt="OEM Caps logo" width="70" height="70" style="object-fit: contain;">
           <span class="sitename">OEM Caps</span>
         </a>
         <div class="footer-contact pt-3">
@@ -762,6 +762,28 @@
 
     // 观察每个 .stat-num
     counters.forEach(counter => observer.observe(counter));
+  });
+</script>
+
+<!-- ⬇️ 新增：导航栏滚动变白脚本（只改了这一处） -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var header = document.querySelector('.header');
+    if (!header) return;
+
+    // 初始状态：透明背景
+    header.style.background = 'transparent';
+    header.style.transition = 'background 0.3s ease, box-shadow 0.3s ease';
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        header.style.background = '#ffffff';
+        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)';
+      } else {
+        header.style.background = 'transparent';
+        header.style.boxShadow = 'none';
+      }
+    });
   });
 </script>
 
