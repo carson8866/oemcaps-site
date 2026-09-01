@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- 首页 -->
+  <!-- 首页（最重要的页面） -->
   <url>
        <loc>https://oemcaps.com/</loc>
        <lastmod>2026-08-30T02:34:16+00:00</lastmod>
@@ -18,36 +18,23 @@
        <priority>0.8000</priority>
   </url>
 
-  <!-- 服务详情页（如果有一个产品/服务页面的话） -->
-  <url>
-       <loc>https://oemcaps.com/service-details.html</loc>
-       <lastmod>2026-08-30T02:34:16+00:00</lastmod>
-       <changefreq>weekly</changefreq>
-       <priority>0.8000</priority>
-  </url>
-
-  <!-- 作品集详情页 -->
-  <url>
-       <loc>https://oemcaps.com/portfolio-details.html</loc>
-       <lastmod>2026-08-30T02:34:16+00:00</lastmod>
-       <changefreq>weekly</changefreq>
-       <priority>0.8000</priority>
-  </url>
-
-  <!-- 博客详情页（注意：如果是动态生成的模板页，且没有具体内容，可不加；如果有具体内容，请换成具体文章名，比如 blog-1.html） -->
-  <url>
+  <!-- 
+    以下页面目前为模板占位页，未发布真实内容，暂不收录！
+    等以后你添加了真实的博客文章、产品详情后，再取消注释并修改链接。
+    
+    <url>
        <loc>https://oemcaps.com/blog-details.html</loc>
        <lastmod>2026-08-30T02:34:16+00:00</lastmod>
        <changefreq>weekly</changefreq>
        <priority>0.7000</priority>
-  </url>
+    </url>
 
-  <!-- 起步页（关于我们/联系我们等，占位页面） -->
-  <url>
-       <loc>https://oemcaps.com/starter-page.html</loc>
+    <url>
+       <loc>https://oemcaps.com/service-details.html</loc>
        <lastmod>2026-08-30T02:34:16+00:00</lastmod>
-       <changefreq>monthly</changefreq>
-       <priority>0.6000</priority>
-  </url>
+       <changefreq>weekly</changefreq>
+       <priority>0.7000</priority>
+    </url>
+  -->
 
 </urlset>
