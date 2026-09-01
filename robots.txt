@@ -2,7 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 Disallow: /forms/
-Disallow: /index-original-backup.html
+Disallow: /starter-page.html
+Disallow: /*?
 
 User-agent: GPTBot
 Allow: /
